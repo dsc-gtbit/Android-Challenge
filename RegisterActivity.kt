@@ -23,7 +23,7 @@ class RegisterActivity : AppCompatActivity() {
             val password = edit_text_password.text.toString().trim()
             if (email.isEmpty()) {
                 edit_text_email.error = "Email Required"
-                edit_text_email.requestFocus()
+                edit_text_email.requestFocus()//email validator
                 return@setOnClickListener
             }
             if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
@@ -39,7 +39,7 @@ class RegisterActivity : AppCompatActivity() {
 
             }
 
-            registeruser(email, password)
+            registeruser(email, password)//register new user
         }
 
         text_view_login.setOnClickListener {
@@ -54,7 +54,7 @@ class RegisterActivity : AppCompatActivity() {
                 progressbar.visibility = View.INVISIBLE
                 if (task.isSuccessful) {
                     //Registration Successfull
-                    login()
+                    login()//to login
                     startActivity(intent)
                 } else {
                     task.exception?.message?.let {
